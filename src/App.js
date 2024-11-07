@@ -151,6 +151,11 @@ function ConnectImageLink({ imageSrc, url, caption }) {
   );
 }
 
+function BackTop() {
+  return (
+    <p s>back to the top</p>
+  );
+}
 
 function App() {
   return (
@@ -184,6 +189,7 @@ function App() {
           <main>
             <Heading nameHeading="let's connect"/>
             <Connect/>
+            <BackTop/>
           </main>
         </body>
         <footer>
