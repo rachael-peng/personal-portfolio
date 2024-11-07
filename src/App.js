@@ -23,11 +23,22 @@ const engineeringPortfolioImages = require.context('./engProjectImages', true);
 const engineeringPortfolioImagesList = aboutMeIcons.keys().map(image => aboutMeIcons(image));
 
 const engineeringPortfolio = [
-  { title: 'light water installation', id: 1.1 },
-  { title: 'heat stroke prevention vest', id: 1.2 },
-  { title: 'line-following robot', id: 1.3 },
+  {
+    imageSrc: './engProjectImages/installation.png',
+    link: '',
+    caption: 'light water installation'
+  },
+  {
+    imageSrc: './engProjectImages/heatVest.jpg',
+    link: '/project2',
+    caption: 'heat stroke prevention vest'
+  },
+  {
+    imageSrc: './engProjectImages/snakeGame.jpg',
+    link: '/project3',
+    caption: 'snake game'
+  }
 ];
-
 
 const uiuxPortfolio = [
   { title: 'food friendly mobile app', id: 2.1 },
@@ -178,6 +189,16 @@ function App() {
             <Heading nameHeading="portfolio"/>
 
             <PortfolioHeader headingName="engineering projects"/>
+            <div>
+              {engineeringPortfolio.map((item, index) => (
+                <PortfolioItem
+                  key={index}
+                  imageSrc={item.imageSrc}
+                  link={item.link}
+                  caption={item.caption}
+                />
+              ))}
+            </div>
 
             
             <PortfolioHeader headingName="ui/ux design"/>
