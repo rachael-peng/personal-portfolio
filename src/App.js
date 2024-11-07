@@ -107,7 +107,6 @@ function PortfolioItem({imageSrc, link, caption}) {
   );
 }
 
-
 function App() {
   return (
     <div>
@@ -130,6 +129,7 @@ function App() {
 
             <PortfolioHeader headingName="engineering projects"/>
             <PortfolioItem className="portfolioItem" imageSrc="" link="" caption="light water installation"/>
+            
 
             <PortfolioHeader headingName="ui/ux design"/>
 
