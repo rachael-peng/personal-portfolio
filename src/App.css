@@ -116,7 +116,27 @@ a, a:visited {
 
 /* --------------------------------- */
 
+.connectContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 45px;
+  padding-bottom: 50px;
+}
 
+.connectImages {
+  width: 80px;
+  height: 80px;
+}
+
+.connectImageCaption {
+  margin-left: 10px;
+  font-family: "PT Sans Caption";
+}
+
+.connectCaptionContainer{
+  display: flex;
+  align-items: center;
+}
 
 /* --------------------------------- */
 

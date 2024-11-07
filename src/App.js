@@ -2,11 +2,32 @@ import './App.css';
 const aboutMeIcons = require.context('./aboutMeIcons', true);
 const aboutMeIconsImages = aboutMeIcons.keys().map(image => aboutMeIcons(image));
 
+const connectIcons = require.context('./connect', true);
+const connectIconsImages = connectIcons.keys().map(image => connectIcons(image));
+
+const connectImageData = [
+  {
+    src: connectIconsImages[0],
+    url: 'https://example.com/image1',
+    caption: 'linkedIn'
+  },
+  {
+    src: connectIconsImages[1],
+    url: 'rachaelpeng7@gmail.com',
+    caption: 'email'
+  },
+  // ... more image data objects
+];
+
+const engineeringPortfolioImages = require.context('./engProjectImages', true);
+const engineeringPortfolioImagesList = aboutMeIcons.keys().map(image => aboutMeIcons(image));
+
 const engineeringPortfolio = [
   { title: 'light water installation', id: 1.1 },
   { title: 'heat stroke prevention vest', id: 1.2 },
   { title: 'line-following robot', id: 1.3 },
 ];
+
 
 const uiuxPortfolio = [
   { title: 'food friendly mobile app', id: 2.1 },
@@ -30,9 +51,7 @@ function MenuBar() {
         fontFamily: "Kulim Park", fontSize: '32px', fontWeight: '400' }}>
           Rachael Peng
       </a>
-      <a href="/" className="menuNavHeaders" style={{
-        marginLeft: "600px"
-      }}>
+      <a href="/" className="menuNavHeaders" style={{marginLeft: "calc(600px - 10vw)"}}>
         about me</a>
       <a href="/" className="menuNavHeaders">portfolio</a>
       <a href="/" className="menuNavHeaders" style={{paddingRight: "93px"}}>connect</a>
@@ -66,7 +85,6 @@ function AboutMe() {
         {aboutMeIconsImages.map((imageSrc, index) => (
           <img key={index} src={imageSrc} alt={`Image of ${imageSrc}`} className='aboutMeImages'/>
         ))}
-
       </div> 
       <div className="aboutMeListContainer">
         <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in software and biomedical, minor in commerce</p>
@@ -107,6 +125,33 @@ function PortfolioItem({imageSrc, link, caption}) {
   );
 }
 
+function Connect() {
+  return (
+    <div className="connectContainer">
+      {connectImageData.map((item, index) => (
+        <ConnectImageLink
+          key={index}
+          imageSrc={item.src}
+          url={item.url}
+          caption={item.caption}
+        />
+      ))}
+    </div> 
+  );
+}
+
+function ConnectImageLink({ imageSrc, url, caption }) {
+  return (
+    <div className="connectCaptionContainer">
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <img key={imageSrc} src={imageSrc} alt={`Image of ${imageSrc}`} className="connectImages" />
+      </a>
+      <p className="connectImageCaption">{caption}</p>
+    </div>
+  );
+}
+
+
 function App() {
   return (
     <div>
@@ -124,27 +169,31 @@ function App() {
         <body>
           <AboutMe/>
           
-          <main className="portfolio">
+          <main>
             <Heading nameHeading="portfolio"/>
 
             <PortfolioHeader headingName="engineering projects"/>
-            <PortfolioItem className="portfolioItem" imageSrc="" link="" caption="light water installation"/>
+
+            
+            <PortfolioHeader headingName="ui/ux design"/>
             
 
-            <PortfolioHeader headingName="ui/ux design"/>
-
             <PortfolioHeader headingName="graphic design, art, video"/>
-
           </main>
 
-          <main className='connect'>
+          <main>
             <Heading nameHeading="let's connect"/>
+            <Connect/>
           </main>
-
         </body>
-
         <footer>
-
+          <p style={{
+            fontFamily: "Kulim Park",
+            fontSize: "11px",
+            fontWeight: "400",
+          }}>
+            coded in React and designed in Figma by Rachael Peng
+          </p>
         </footer>
       </div>
     </div> 
