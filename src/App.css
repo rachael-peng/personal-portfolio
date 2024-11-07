@@ -114,8 +114,12 @@ a, a:visited {
   font-weight: 400;
 }
 
+.porfolioItemContainer {
+  display: flex;
+}
+
 .portoflioImage {
-  
+  height: 328px;
 }
 
 /* --------------------------------- */

@@ -211,7 +211,7 @@ function App() {
             <Heading nameHeading="portfolio"/>
 
             <PortfolioHeader headingName="engineering projects"/>
-            <div>
+            <div className="porfolioItemContainer">
               {engineeringPortfolio.map((item, index) => (
                 <PortfolioItem
                   key={index}
