@@ -24,16 +24,16 @@ const connectImageData = [
 ];
 
 const engineeringPortfolioImages = require.context('./engProjectImages', true);
-const engineeringPortfolioImagesList = aboutMeIcons.keys().map(image => aboutMeIcons(image));
+const engineeringPortfolioImagesList = engineeringPortfolioImages.keys().map(image => engineeringPortfolioImages(image));
 
 const engineeringPortfolio = [
   {
-    imageSrc: './engProjectImages/installation.png',
+    imageSrc: engineeringPortfolioImagesList[1],
     link: '/lightWater',
     caption: 'light water installation'
   },
   {
-    imageSrc: './engProjectImages/heatVest.jpg',
+    imageSrc: engineeringPortfolioImagesList[0],
     link: './engProjectPages/heatVest.js',
     caption: 'heat stroke prevention vest'
   },
@@ -44,13 +44,28 @@ const engineeringPortfolio = [
   }
 ];
 
+const uiuxPortfolioImages = require.context('./uiuxImages', true);
+const uiuxPortfolioImagesList = uiuxPortfolioImages.keys().map(image => uiuxPortfolioImages(image));
+
 const uiuxPortfolio = [
-  { title: 'food friendly mobile app', id: 2.1 },
-  { title: 'light water web app', id: 2.2 },
-  { title: 'nook web app', id: 2.3 },
+  {
+    imageSrc: uiuxPortfolioImagesList[0],
+    link: '/lightWater',
+    caption: 'food friendly mobile app'
+  },
+  {
+    imageSrc: uiuxPortfolioImagesList[1],
+    link: '',
+    caption: 'light water web app'
+  },
+  {
+    imageSrc: uiuxPortfolioImagesList[2],
+    link: '',
+    caption: 'nook web app'
+  }
 ]
 
-const artmediaPortfolio = [
+const mediaPortfolio = [
   { title: 'projection lighting animation', id: 3.1 },
   { title: 'social media marketing', id: 3.2 },
   { title: 'short video production', id: 3.3 },
@@ -132,10 +147,8 @@ function PortfolioHeader({headingName}) {
 function PortfolioItem({imageSrc, link, caption}) {
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
-      <button>
-        <img src={imageSrc} alt={caption} className="portoflioImage"/>
-        <p>{caption}</p>
-      </button>
+      <img src={imageSrc} alt={caption} className="portoflioImage"/>
+      <p>{caption}</p>
     </a>
   );
 }
@@ -174,7 +187,12 @@ function BackTop() {
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/lightWater" element={<LightWater />} />
+        {/* <Route path="/project2" element={<Project2 />} />
+        <Route path="/project3" element={<Project3 />} /> */}
+      </Routes>
       <header>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -182,14 +200,6 @@ function App() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"/>
-
-        <BrowserRouter>
-          <Routes>
-            <Route path="/lightWater" element={<LightWater />} />
-            {/* <Route path="/project2" element={<Project2 />} />
-            <Route path="/project3" element={<Project3 />} /> */}
-          </Routes>
-        </BrowserRouter> 1  
       </header>
       <MenuBar/>
 
@@ -211,12 +221,30 @@ function App() {
                 />
               ))}
             </div>
-
             
             <PortfolioHeader headingName="ui/ux design"/>
-            
+              <div>
+                {uiuxPortfolio.map((item, index) => (
+                  <PortfolioItem
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    link={item.link}
+                    caption={item.caption}
+                  />
+                ))}
+              </div>
 
             <PortfolioHeader headingName="graphic design, art, video"/>
+            <div>
+              {mediaPortfolio.map((item, index) => (
+                <PortfolioItem
+                  key={index}
+                  imageSrc={item.imageSrc}
+                  link={item.link}
+                  caption={item.caption}
+                />
+              ))}
+            </div>
           </main>
 
           <main>
@@ -235,7 +263,7 @@ function App() {
           </p>
         </footer>
       </div>
-    </div> 
+    </BrowserRouter>  
   );
 }
 
