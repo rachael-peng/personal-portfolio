@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Name() {
+function LightWater() {
     return (
       <div>
-        <h1>Name Page</h1>
+        <h1>Light Water</h1>
       </div>
     );
   }
   
-  export default Name;
+  export default LightWater;

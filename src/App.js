@@ -1,4 +1,8 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LightWater from './engProjectPages/lightWater';
+
+
 const aboutMeIcons = require.context('./aboutMeIcons', true);
 const aboutMeIconsImages = aboutMeIcons.keys().map(image => aboutMeIcons(image));
 
@@ -25,17 +29,17 @@ const engineeringPortfolioImagesList = aboutMeIcons.keys().map(image => aboutMeI
 const engineeringPortfolio = [
   {
     imageSrc: './engProjectImages/installation.png',
-    link: '',
+    link: '/lightWater',
     caption: 'light water installation'
   },
   {
     imageSrc: './engProjectImages/heatVest.jpg',
-    link: '/project2',
+    link: './engProjectPages/heatVest.js',
     caption: 'heat stroke prevention vest'
   },
   {
     imageSrc: './engProjectImages/snakeGame.jpg',
-    link: '/project3',
+    link: './engProjectPages/snakeGame.js',
     caption: 'snake game'
   }
 ];
@@ -178,6 +182,14 @@ function App() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"/>
+
+        <BrowserRouter>
+          <Routes>
+            <Route path="/lightWater" element={<LightWater />} />
+            {/* <Route path="/project2" element={<Project2 />} />
+            <Route path="/project3" element={<Project3 />} /> */}
+          </Routes>
+        </BrowserRouter> 1  
       </header>
       <MenuBar/>
 
