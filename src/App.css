@@ -95,8 +95,8 @@ a, a:visited {
 
 .portfolioHeaderContainer {
   width: 270px;
-  height: 360px;
-  display: flex;
+  height: 292px;
+  display: inline-flex;
   border-radius: 12px;
   background: var(--block, #FFF8EA);
   font-family: "Kulim Park";
@@ -106,6 +106,8 @@ a, a:visited {
   align-items: center;
   padding: 0 48px;
   box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .portfolioHeaderText {
@@ -115,11 +117,17 @@ a, a:visited {
 }
 
 .porfolioItemContainer {
-  display: flex;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .portoflioImage {
-  height: 328px;
+  height: 260px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* --------------------------------- */

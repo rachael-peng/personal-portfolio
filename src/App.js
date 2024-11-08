@@ -12,7 +12,7 @@ const connectIconsImages = connectIcons.keys().map(image => connectIcons(image))
 const connectImageData = [
   {
     src: connectIconsImages[0],
-    url: 'https://example.com/image1',
+    url: 'https://www.linkedin.com/in/rachael-peng/',
     caption: 'linkedIn'
   },
   {
@@ -65,10 +65,25 @@ const uiuxPortfolio = [
   }
 ]
 
+const mediaPortfolioImages = require.context('./mediaImages', true);
+const mediaPortfolioImagesList = mediaPortfolioImages.keys().map(image => mediaPortfolioImages(image));
+
 const mediaPortfolio = [
-  { title: 'projection lighting animation', id: 3.1 },
-  { title: 'social media marketing', id: 3.2 },
-  { title: 'short video production', id: 3.3 },
+  {
+    imageSrc: mediaPortfolioImagesList[0],
+    link: '/lightWater',
+    caption: 'projection lighting animation'
+  },
+  {
+    imageSrc: mediaPortfolioImagesList[1],
+    link: '',
+    caption: 'social media marketing'
+  },
+  {
+    imageSrc: mediaPortfolioImagesList[2],
+    link: '',
+    caption: 'short video production'
+  }
 ]
 
 // -----------------------------------------//
@@ -81,7 +96,7 @@ function MenuBar() {
         fontFamily: "Kulim Park", fontSize: '32px', fontWeight: '400' }}>
           Rachael Peng
       </a>
-      <a href="/" className="menuNavHeaders" style={{marginLeft: "calc(600px - 10vw)"}}>
+      <a href="/" className="menuNavHeaders" style={{marginLeft: "600px"}}>
         about me</a>
       <a href="/" className="menuNavHeaders">portfolio</a>
       <a href="/" className="menuNavHeaders" style={{paddingRight: "93px"}}>connect</a>
@@ -221,21 +236,25 @@ function App() {
                 />
               ))}
             </div>
+
+            <div></div>
             
+            <div className="porfolioItemContainer">
+              {uiuxPortfolio.map((item, index) => (
+                <PortfolioItem
+                  key={index}
+                  imageSrc={item.imageSrc}
+                  link={item.link}
+                  caption={item.caption}
+                />
+              ))}
+            </div>
             <PortfolioHeader headingName="ui/ux design"/>
-              <div>
-                {uiuxPortfolio.map((item, index) => (
-                  <PortfolioItem
-                    key={index}
-                    imageSrc={item.imageSrc}
-                    link={item.link}
-                    caption={item.caption}
-                  />
-                ))}
-              </div>
+
+            <div></div>
 
             <PortfolioHeader headingName="graphic design, art, video"/>
-            <div>
+            <div className="porfolioItemContainer">
               {mediaPortfolio.map((item, index) => (
                 <PortfolioItem
                   key={index}
