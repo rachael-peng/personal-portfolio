@@ -14,13 +14,8 @@ const connectImageData = [
     url: 'https://www.linkedin.com/in/rachael-peng/',
     caption: 'linkedIn'
   },
-  {
-    src: connectIconsImages[1],
-    url: 'rachaelpeng7@gmail.com',
-    caption: 'email'
-  },
-  // ... more image data objects
 ];
+
 
 const engineeringPortfolioImages = require.context('./engProjectImages', true);
 const engineeringPortfolioImagesList = engineeringPortfolioImages.keys().map(image => engineeringPortfolioImages(image));
@@ -178,6 +173,17 @@ function AboutMe() {
       </div>
     );
   }
+
+  function EmailButton() {
+    const emailAddress = 'rachaelpeng7@gmail.com';
+  
+    return (
+      <button onClick={() => window.location.href = `mailto:${emailAddress}`}>
+        Send Email
+      </button>
+    );
+  }
+  
   
   // -----------------------------------------//
   
@@ -239,6 +245,7 @@ function AboutMe() {
             <main>
               <Heading nameHeading="let's connect"/>
               <Connect/>
+              <EmailButton/>
             </main>
           </div>
           <footer>
