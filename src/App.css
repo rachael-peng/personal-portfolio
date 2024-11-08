@@ -3,6 +3,8 @@ a, a:visited {
   color: black;
 }
 
+
+
 /* --------------------------------- */
 
 .menuBar {
@@ -109,6 +111,7 @@ a, a:visited {
   font-family: "Kulim Park";
   font-size: 26px;
   font-weight: 400;
+  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.2);
 
   justify-content: center;
   align-items: center;
@@ -148,8 +151,9 @@ a, a:visited {
 /* --------------------------------- */
 
 .connectContainer {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 45px;
   padding-bottom: 50px;
 }
@@ -167,6 +171,10 @@ a, a:visited {
 .connectCaptionContainer{
   display: flex;
   align-items: center;
+}
+
+.connectCaptionContainer:hover {
+  cursor: pointer;
 }
 
 /* --------------------------------- */

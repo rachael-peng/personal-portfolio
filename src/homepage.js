@@ -1,6 +1,7 @@
 import './App.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import emailImage from './connect/mail.png'
 
 const aboutMeIcons = require.context('./aboutMeIcons', true);
 const aboutMeIconsImages = aboutMeIcons.keys().map(image => aboutMeIcons(image));
@@ -15,7 +16,6 @@ const connectImageData = [
     caption: 'linkedIn'
   },
 ];
-
 
 const engineeringPortfolioImages = require.context('./engProjectImages', true);
 const engineeringPortfolioImagesList = engineeringPortfolioImages.keys().map(image => engineeringPortfolioImages(image));
@@ -121,15 +121,15 @@ function AboutMe() {
     );
   }
   
-  function Heading({nameHeading}) {
-    return (
-      <div className="headingContainer">
-        <div className="line"></div>
-        <h1>{nameHeading}</h1>
-        <div className="line"></div>
-      </div>
-    );
-  }
+function Heading({nameHeading}) {
+  return (
+    <div className="headingContainer">
+      <div className="line"></div>
+      <h1>{nameHeading}</h1>
+      <div className="line"></div>
+    </div>
+  );
+}
   
   // -----------------------------------------//
   function PortfolioHeader({headingName}) {
@@ -150,7 +150,7 @@ function AboutMe() {
   // -----------------------------------------//
   function Connect() {
     return (
-      <div className="connectContainer">
+      <div>
         {connectImageData.map((item, index) => (
           <ConnectImageLink
             key={index}
@@ -178,9 +178,10 @@ function AboutMe() {
     const emailAddress = 'rachaelpeng7@gmail.com';
   
     return (
-      <button onClick={() => window.location.href = `mailto:${emailAddress}`}>
-        Send Email
-      </button>
+      <div className="connectCaptionContainer" onClick={() => window.location.href = `mailto:${emailAddress}`}>
+        <img className='connectImages' src={emailImage}/>
+        <p className='connectImageCaption'>email</p>
+      </div>
     );
   }
   
@@ -244,8 +245,11 @@ function AboutMe() {
   
             <main>
               <Heading nameHeading="let's connect"/>
-              <Connect/>
-              <EmailButton/>
+              <div className='connectContainer'>
+                <Connect/>
+                <EmailButton/>
+              </div>
+              
             </main>
           </div>
           <footer>
