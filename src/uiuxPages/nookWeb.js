@@ -22,6 +22,15 @@ function NookPage() {
           src="https://embed.figma.com/design/THhihNtUttilnTuofHOfXr/cmd-f?node-id=0-1&embed-host=share"
           allowFullScreen=""
         />
+
+
+      <iframe
+        style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+        width={1000}
+        height={600}
+        src="https://embed.figma.com/proto/THhihNtUttilnTuofHOfXr/cmd-f?node-id=12-27&node-type=frame&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share"
+        allowFullScreen=""
+      />
       </div>
     </div>
     );
