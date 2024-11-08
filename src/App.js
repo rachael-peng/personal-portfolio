@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import LightWater from './engProjectPages/lightWater';
 
 
@@ -87,7 +88,15 @@ const mediaPortfolio = [
 ]
 
 // -----------------------------------------//
+function ItemLink({ to, children }) {
+  return (
+      <Link to={to}>
+          {children}
+      </Link>
+  );
+}
 
+// -----------------------------------------//
 function MenuBar() {
   return (
     <nav className="menuBar">
@@ -104,19 +113,21 @@ function MenuBar() {
   )
 }
 
+// -----------------------------------------//
 function AboutMe() {
   return (
     <main className='aboutMeContainer'>
-      <div>
-        <p style={{
+      <div className="titleContainer">
+        <div style={{
           fontFamily: "Lato",
           fontSize: "30px",
           fontStyle: "normal",
           fontWeight: "400",
+          marginBottom: "12px",
         }}>
           hello, thanks for visiting! i'm
-        </p>
-        <p style={{
+        </div>
+        <div style={{
           color: "#000",
           fontFamily: "Lato",
           fontSize: "76px",
@@ -124,7 +135,7 @@ function AboutMe() {
           textAlign: "left",
         }}>
           Rachael Peng
-        </p>
+        </div>
       </div> 
       <div className="aboutMeImageContainer">
         {aboutMeIconsImages.map((imageSrc, index) => (
@@ -133,7 +144,7 @@ function AboutMe() {
       </div> 
       <div className="aboutMeListContainer">
         <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in software and biomedical, minor in commerce</p>
-        <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year work experience</p>
+        <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year</p>
         <p className='aboutMeText'>environmental sub-team lead @ engineers without borders</p>
         <p className='aboutMeText'>sustainability driven, visual artist, & travel-lover @ heart</p>
       </div>
@@ -153,6 +164,7 @@ function Heading({nameHeading}) {
   );
 }
 
+// -----------------------------------------//
 function PortfolioHeader({headingName}) {
   return (
     <div className="portfolioHeaderContainer"><div className='maxWidth'>{headingName}</div></div>
@@ -168,6 +180,7 @@ function PortfolioItem({imageSrc, link, caption}) {
   );
 }
 
+// -----------------------------------------//
 function Connect() {
   return (
     <div className="connectContainer">
@@ -200,6 +213,9 @@ function BackTop() {
   );
 }
 
+// -----------------------------------------//
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -225,44 +241,50 @@ function App() {
           <main>
             <Heading nameHeading="portfolio"/>
 
-            <PortfolioHeader headingName="engineering projects"/>
-            <div className="porfolioItemContainer">
-              {engineeringPortfolio.map((item, index) => (
-                <PortfolioItem
-                  key={index}
-                  imageSrc={item.imageSrc}
-                  link={item.link}
-                  caption={item.caption}
-                />
-              ))}
+            <div className='box'>
+              <PortfolioHeader headingName="engineering projects"/>
+              <div className="porfolioItemContainer">
+                {engineeringPortfolio.map((item, index) => (
+                  <PortfolioItem
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    link={item.link}
+                    caption={item.caption}
+                  />
+                ))}
+              </div>
             </div>
 
             <div></div>
             
-            <div className="porfolioItemContainer">
-              {uiuxPortfolio.map((item, index) => (
-                <PortfolioItem
-                  key={index}
-                  imageSrc={item.imageSrc}
-                  link={item.link}
-                  caption={item.caption}
-                />
-              ))}
-            </div>
+            <div className='box'>
+              <div className="porfolioItemContainer">
+                {uiuxPortfolio.map((item, index) => (
+                  <PortfolioItem
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    link={item.link}
+                    caption={item.caption}
+                  />
+                ))}
+              </div>
             <PortfolioHeader headingName="ui/ux design"/>
+            </div>
 
             <div></div>
 
-            <PortfolioHeader headingName="graphic design, art, video"/>
-            <div className="porfolioItemContainer">
-              {mediaPortfolio.map((item, index) => (
-                <PortfolioItem
-                  key={index}
-                  imageSrc={item.imageSrc}
-                  link={item.link}
-                  caption={item.caption}
-                />
-              ))}
+            <div className='box'>
+              <PortfolioHeader headingName="graphic design, art, video"/>
+              <div className="porfolioItemContainer">
+                {mediaPortfolio.map((item, index) => (
+                  <PortfolioItem
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    link={item.link}
+                    caption={item.caption}
+                  />
+                ))}
+              </div>
             </div>
           </main>
 
