@@ -1,5 +1,9 @@
 import React from 'react';
 import '../pages.css';
+import lungVideo from "./BreathingLungs.mp4"
+import treeVideo from "./BreathingTree.mp4"
+import brightFlower from "./Flower - Bright.png"
+import darkFlower from "./Flower - Dark.png"
 
 function AnimationPage() {
     return (
@@ -15,6 +19,23 @@ function AnimationPage() {
       </div>
 
       <br></br>
+
+      <video width="600" controls>
+        <source src={lungVideo} type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+      <video width="600" controls>
+        <source src={treeVideo} type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+      
+      <br></br>
+      <img style={{
+        width: "250px",
+      }} src={brightFlower}/>
+      <img style={{
+        width: "250px",
+      }} src={darkFlower}/>
 
     </div>
     );

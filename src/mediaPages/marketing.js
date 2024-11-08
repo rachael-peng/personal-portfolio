@@ -1,46 +1,49 @@
-import React from 'react';
-import MenuBar from '../App.js'; 
+import React, { useState, useEffect } from 'react';
+import '../pages.css';
+
+const images = require.context('./marketingGraphic', false, /\.(png|jpe?g|svg)$/);
+const imageSrcs = images.keys().map(image => images(image));
+
+function ImageGallery() {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    // Assuming you've used dynamic imports:
+    Promise.all(imageSrcs)
+      .then(imageUrls => setImages(imageUrls))
+      .catch(error => console.error('Error loading images:', error));
+  }, [imageSrcs]);
+
+  return (
+    <div>
+      {images.map((imageUrl, index) => (
+        <img key={index} src={imageUrl} alt={`Image ${index + 1}`} style={{
+          width: "200px",
+        }}/>
+      ))}
+    </div>
+  );
+}
 
 function SocialMediaMarketingPage() {
     return (
-        <div>
-            <MenuBar />
-            <h1>SocialMediaMarketingPage</h1>
-        </div>
-    );
-}
 
-export default SocialMediaMarketingPage;
-
-import React from 'react';
-import '../pages.css';
-
-function AnimationPage() {
-    return (
       <div className='page'>
       <div className='headingContainer'>
-        <div className="pageHeading">Light Water Web App</div>
+        <div className="pageHeading">Social Media Marketing - Graphic Design</div>
       </div>
       <div className='descriptionContainer'>
-        <p><strong>Team Leader and Founder</strong></p>
-        <p><strong>Created:</strong> September 2023 - April 2024</p>
-        <p><strong>Ideated for:</strong> IGEN 330 - Year Long Engineering Project Design</p>
-        <p><strong>Description:</strong> Design dynamic, interactive engineering/art installation controlled by web app. Created to raise awareness for clean water availability challenges. Physical components include welded aluminum frame, stepper motors and drivers, LED lights, edge-lit laser cut acrylic, power outlet plug, pH and turbidity water sensors, etc.
-        Create web app control state (lights, motion, sounds) of corresponding installation according to clean water data. Skills: Figma, HTML, CSS, Javascript, HTTP communication, Arduino, C++.
+        <p><strong>Description:</strong> Diverse social media/marketing/etc. posters for various clubs and organizations. Made in Canva.
         </p>
-
       </div>
 
       <br></br>
+
+      <ImageGallery/>
 
     </div>
     );
 }
 
-export default AnimationPage;
-
-
-        
-
-
+export default SocialMediaMarketingPage;
 
