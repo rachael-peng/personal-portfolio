@@ -1,0 +1,30 @@
+.page {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.pageHeading {
+    font-family: "Kulim Park";
+    font-weight: 700;
+    margin-top: 50px;
+    font-size: 36pt;
+}
+
+p {
+    font-family: "Lato";
+    font-size: 14pt;
+    margin-top: 10px;
+}
+
+.headingContainer {
+    margin-bottom: 20px; 
+}
+
+.itemContainer {
+    justify-content: center;
+    align-items: center;
+}
+
+.pageImgs{
+    width: 1100px;
+}

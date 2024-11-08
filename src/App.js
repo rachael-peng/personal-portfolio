@@ -1,102 +1,30 @@
 import './App.css';
-import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import LightWater from './engProjectPages/lightWater';
+import HomePage from './homepage';
 
+import LightWaterPage from './engProjectPages/lightWater';
+import HeatVestPage from './engProjectPages/heatVest';
+import SnakeGamePage from './engProjectPages/snakeGame';
 
-const aboutMeIcons = require.context('./aboutMeIcons', true);
-const aboutMeIconsImages = aboutMeIcons.keys().map(image => aboutMeIcons(image));
+import LightWaterWebPage from './uiuxPages/lightWaterWeb';
+import FoodFriendlyPage from './uiuxPages/foodFriendly';
+import NookPage from './uiuxPages/nookWeb';
 
-const connectIcons = require.context('./connect', true);
-const connectIconsImages = connectIcons.keys().map(image => connectIcons(image));
-
-const connectImageData = [
-  {
-    src: connectIconsImages[0],
-    url: 'https://www.linkedin.com/in/rachael-peng/',
-    caption: 'linkedIn'
-  },
-  {
-    src: connectIconsImages[1],
-    url: 'rachaelpeng7@gmail.com',
-    caption: 'email'
-  },
-  // ... more image data objects
-];
-
-const engineeringPortfolioImages = require.context('./engProjectImages', true);
-const engineeringPortfolioImagesList = engineeringPortfolioImages.keys().map(image => engineeringPortfolioImages(image));
-
-const engineeringPortfolio = [
-  {
-    imageSrc: engineeringPortfolioImagesList[1],
-    link: '/lightWater',
-    caption: 'light water installation'
-  },
-  {
-    imageSrc: engineeringPortfolioImagesList[0],
-    link: './engProjectPages/heatVest.js',
-    caption: 'heat stroke prevention vest'
-  },
-  {
-    imageSrc: './engProjectImages/snakeGame.jpg',
-    link: './engProjectPages/snakeGame.js',
-    caption: 'snake game'
-  }
-];
-
-const uiuxPortfolioImages = require.context('./uiuxImages', true);
-const uiuxPortfolioImagesList = uiuxPortfolioImages.keys().map(image => uiuxPortfolioImages(image));
-
-const uiuxPortfolio = [
-  {
-    imageSrc: uiuxPortfolioImagesList[0],
-    link: '/lightWater',
-    caption: 'food friendly mobile app'
-  },
-  {
-    imageSrc: uiuxPortfolioImagesList[1],
-    link: '',
-    caption: 'light water web app'
-  },
-  {
-    imageSrc: uiuxPortfolioImagesList[2],
-    link: '',
-    caption: 'nook web app'
-  }
-]
-
-const mediaPortfolioImages = require.context('./mediaImages', true);
-const mediaPortfolioImagesList = mediaPortfolioImages.keys().map(image => mediaPortfolioImages(image));
-
-const mediaPortfolio = [
-  {
-    imageSrc: mediaPortfolioImagesList[0],
-    link: '/lightWater',
-    caption: 'projection lighting animation'
-  },
-  {
-    imageSrc: mediaPortfolioImagesList[1],
-    link: '',
-    caption: 'social media marketing'
-  },
-  {
-    imageSrc: mediaPortfolioImagesList[2],
-    link: '',
-    caption: 'short video production'
-  }
-]
+import AnimationPage from './mediaPages/animation';
+import SocialMediaMarketingPage from './mediaPages/marketing';
+import VideoPage from './mediaPages/video';
 
 // -----------------------------------------//
-function ItemLink({ to, children }) {
+
+function AppLayout({ children }) {
   return (
-      <Link to={to}>
-          {children}
-      </Link>
+    <div>
+      <MenuBar/>
+      {children}
+    </div>
   );
 }
-
-// -----------------------------------------//
 function MenuBar() {
   return (
     <nav className="menuBar">
@@ -113,117 +41,9 @@ function MenuBar() {
   )
 }
 
-// -----------------------------------------//
-function AboutMe() {
-  return (
-    <main className='aboutMeContainer'>
-      <div className="titleContainer">
-        <div style={{
-          fontFamily: "Lato",
-          fontSize: "30px",
-          fontStyle: "normal",
-          fontWeight: "400",
-          marginBottom: "12px",
-        }}>
-          hello, thanks for visiting! i'm
-        </div>
-        <div style={{
-          color: "#000",
-          fontFamily: "Lato",
-          fontSize: "76px",
-          fontWeight: "700",
-          textAlign: "left",
-        }}>
-          Rachael Peng
-        </div>
-      </div> 
-      <div className="aboutMeImageContainer">
-        {aboutMeIconsImages.map((imageSrc, index) => (
-          <img key={index} src={imageSrc} alt={`Image of ${imageSrc}`} className='aboutMeImages'/>
-        ))}
-      </div> 
-      <div className="aboutMeListContainer">
-        <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in software and biomedical, minor in commerce</p>
-        <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year</p>
-        <p className='aboutMeText'>environmental sub-team lead @ engineers without borders</p>
-        <p className='aboutMeText'>sustainability driven, visual artist, & travel-lover @ heart</p>
-      </div>
-
-    </main>
-
-  );
-}
-
-function Heading({nameHeading}) {
-  return (
-    <div className="headingContainer">
-      <div className="line"></div>
-      <h1>{nameHeading}</h1>
-      <div className="line"></div>
-    </div>
-  );
-}
-
-// -----------------------------------------//
-function PortfolioHeader({headingName}) {
-  return (
-    <div className="portfolioHeaderContainer"><div className='maxWidth'>{headingName}</div></div>
-  );
-}
-
-function PortfolioItem({imageSrc, link, caption}) {
-  return (
-    <a href={link} target="_blank" rel="noopener noreferrer">
-      <img src={imageSrc} alt={caption} className="portoflioImage"/>
-      <p>{caption}</p>
-    </a>
-  );
-}
-
-// -----------------------------------------//
-function Connect() {
-  return (
-    <div className="connectContainer">
-      {connectImageData.map((item, index) => (
-        <ConnectImageLink
-          key={index}
-          imageSrc={item.src}
-          url={item.url}
-          caption={item.caption}
-        />
-      ))}
-    </div> 
-  );
-}
-
-function ConnectImageLink({ imageSrc, url, caption }) {
-  return (
-    <div className="connectCaptionContainer">
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <img key={imageSrc} src={imageSrc} alt={`Image of ${imageSrc}`} className="connectImages" />
-      </a>
-      <p className="connectImageCaption">{caption}</p>
-    </div>
-  );
-}
-
-function BackTop() {
-  return (
-    <p s>back to the top</p>
-  );
-}
-
-// -----------------------------------------//
-
-
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/lightWater" element={<LightWater />} />
-        {/* <Route path="/project2" element={<Project2 />} />
-        <Route path="/project3" element={<Project3 />} /> */}
-      </Routes>
       <header>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -232,78 +52,22 @@ function App() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"/>
       </header>
-      <MenuBar/>
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/lightWater" element={<LightWaterPage />} />
+          <Route path="/heatVest" element={<HeatVestPage />} />
+          <Route path="/snakeGame" element={<SnakeGamePage />} />
 
-      <div className="App">
-        <body>
-          <AboutMe/>
-          
-          <main>
-            <Heading nameHeading="portfolio"/>
+          <Route path="/foodFriendly" element={<FoodFriendlyPage />} />
+          <Route path="/lightWaterWeb" element={<LightWaterWebPage />} />
+          <Route path="/nook" element={<NookPage />} />
 
-            <div className='box'>
-              <PortfolioHeader headingName="engineering projects"/>
-              <div className="porfolioItemContainer">
-                {engineeringPortfolio.map((item, index) => (
-                  <PortfolioItem
-                    key={index}
-                    imageSrc={item.imageSrc}
-                    link={item.link}
-                    caption={item.caption}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div></div>
-            
-            <div className='box'>
-              <div className="porfolioItemContainer">
-                {uiuxPortfolio.map((item, index) => (
-                  <PortfolioItem
-                    key={index}
-                    imageSrc={item.imageSrc}
-                    link={item.link}
-                    caption={item.caption}
-                  />
-                ))}
-              </div>
-            <PortfolioHeader headingName="ui/ux design"/>
-            </div>
-
-            <div></div>
-
-            <div className='box'>
-              <PortfolioHeader headingName="graphic design, art, video"/>
-              <div className="porfolioItemContainer">
-                {mediaPortfolio.map((item, index) => (
-                  <PortfolioItem
-                    key={index}
-                    imageSrc={item.imageSrc}
-                    link={item.link}
-                    caption={item.caption}
-                  />
-                ))}
-              </div>
-            </div>
-          </main>
-
-          <main>
-            <Heading nameHeading="let's connect"/>
-            <Connect/>
-            <BackTop/>
-          </main>
-        </body>
-        <footer>
-          <p style={{
-            fontFamily: "Kulim Park",
-            fontSize: "11px",
-            fontWeight: "400",
-          }}>
-            coded in React and designed in Figma by Rachael Peng
-          </p>
-        </footer>
-      </div>
+          <Route path="/animation" element={<AnimationPage />} />
+          <Route path="/socialMediaMarketing" element={<SocialMediaMarketingPage />} />
+          <Route path="/video" element={<VideoPage />} />
+        </Routes>
+      </AppLayout>
     </BrowserRouter>  
   );
 }

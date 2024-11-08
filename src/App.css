@@ -52,7 +52,7 @@ a, a:visited {
   flex-direction: column;
   align-items: flex-start;
   margin-left: -90px;
-  margin-top: -20px;
+  margin-top: 0px;
 }
 
 .aboutMeImageContainer {
@@ -69,7 +69,7 @@ a, a:visited {
   font-weight: 400;
   font-family: Lato;
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .aboutMeImages {
