@@ -244,12 +244,11 @@ function Heading({nameHeading}) {
             </main>
   
             <main>
-              <Heading nameHeading="let's connect"/>
+              <Heading nameHeading="connect"/>
               <div className='connectContainer'>
                 <Connect/>
                 <EmailButton/>
               </div>
-              
             </main>
           </div>
           <footer>

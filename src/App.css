@@ -18,6 +18,7 @@ a, a:visited {
   flex-shrink: 0;
   background: #EAE3D4;
   color: black;
+  overflow-x: auto; 
 }
 
 .menuNavHeaders {
@@ -27,6 +28,7 @@ a, a:visited {
   padding-top: 19px;
   margin-left: 30px;
   min-width: 102px;
+  flex-grow: 1;
 }
 
 /* --------------------------------- */
@@ -39,13 +41,14 @@ a, a:visited {
 
 .aboutMeContainer {
   display: flex;
-  width: 100%;
+  width: 1400px;
   height: 323px;
   padding-top: 80px;
   justify-content: center;
   align-items: center;
   gap: 100px;
   flex-shrink: 0;
+  margin-left: 30px;
 } 
 
 .aboutMeListContainer {
@@ -85,6 +88,7 @@ a, a:visited {
   align-items: center;
   gap: 19px;
   margin-top: 60px;
+  margin-left: 30px;
 }
 
 .h1 {
@@ -132,6 +136,7 @@ a, a:visited {
   justify-content: center;
   display: inline-flex; 
   align-items: center;
+  margin-left: 30px;
 }
 
 .porfolioItemContainer {
@@ -152,25 +157,29 @@ a, a:visited {
 
 .connectContainer {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 1450px;
   gap: 45px;
   padding-bottom: 50px;
 }
 
 .connectImages {
+  display: flex;
   width: 80px;
   height: 80px;
 }
 
 .connectImageCaption {
+  display: flex;
   margin-left: 10px;
   font-family: "PT Sans Caption";
+  align-items: center;
+
 }
 
 .connectCaptionContainer{
   display: flex;
-  align-items: center;
 }
 
 .connectCaptionContainer:hover {
@@ -183,14 +192,4 @@ a, a:visited {
   background: white;
   text-align: center;
   color: black;
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
