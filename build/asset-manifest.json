@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9b3ae112.css",
-    "main.js": "/static/js/main.36af67e6.js",
+    "main.css": "/static/css/main.61b43d39.css",
+    "main.js": "/static/js/main.43c98264.js",
     "static/js/453.68693753.chunk.js": "/static/js/453.68693753.chunk.js",
     "static/media/2024 Career Fair Website Banner.png": "/static/media/2024 Career Fair Website Banner.ce80b413bc230ebfb18c.png",
     "static/media/ubcd2d1.mp4": "/static/media/ubcd2d1.9ce1f911f2c72bdde8b9.mp4",
@@ -48,12 +48,12 @@
     "static/media/xtar.png": "/static/media/xtar.0ffdee0ede1bd6357cd1.png",
     "static/media/linkedIn.webp": "/static/media/linkedIn.4c11b4693dd4eebca5be.webp",
     "index.html": "/index.html",
-    "main.9b3ae112.css.map": "/static/css/main.9b3ae112.css.map",
-    "main.36af67e6.js.map": "/static/js/main.36af67e6.js.map",
+    "main.61b43d39.css.map": "/static/css/main.61b43d39.css.map",
+    "main.43c98264.js.map": "/static/js/main.43c98264.js.map",
     "453.68693753.chunk.js.map": "/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b3ae112.css",
-    "static/js/main.36af67e6.js"
+    "static/css/main.61b43d39.css",
+    "static/js/main.43c98264.js"
   ]
 }
