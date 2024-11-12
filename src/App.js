@@ -25,6 +25,9 @@ function AppLayout({ children }) {
     </div>
   );
 }
+
+// menubar
+
 function MenuBar() {
   return (
     <nav className="menuBar">
