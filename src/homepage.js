@@ -31,11 +31,11 @@ const engineeringPortfolio = [
     link: '/heatVest',
     caption: 'heat stroke prevention vest'
   },
-  {
-    imageSrc: './engProjectImages/snakeGame.jpg',
-    link: '/snake game',
-    caption: 'snake game'
-  }
+  // {
+  //   imageSrc: './engProjectImages/snakeGame.jpg',
+  //   link: '/snake game',
+  //   caption: 'snake game'
+  // }
 ];
 
 const uiuxPortfolioImages = require.context('./uiuxImages', true);
