@@ -2,6 +2,8 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import emailImage from './connect/mail.png'
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const aboutMeIcons = require.context('./aboutMeIcons', true);
 const aboutMeIconsImages = aboutMeIcons.keys().map(image => aboutMeIcons(image));
@@ -187,14 +189,27 @@ function Heading({nameHeading}) {
   
   
   // -----------------------------------------//
-  
-  function HomePage() {
+
+function HomePage() {
+    const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
     return (
+        
         <div className="App">
           <div>
             <AboutMe/>
             <main>
-              <Heading nameHeading="portfolio"/>
+              <Heading id="portfolio" nameHeading="portfolio"/>
   
               <div className='box'>
                 <PortfolioHeader headingName="engineering projects"/>
@@ -244,7 +259,7 @@ function Heading({nameHeading}) {
             </main>
   
             <main>
-              <Heading nameHeading="connect"/>
+              <Heading id="connect" nameHeading="connect"/>
               <div className='connectContainer'>
                 <Connect/>
                 <EmailButton/>

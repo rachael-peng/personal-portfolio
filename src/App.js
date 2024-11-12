@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Link, HashRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import HomePage from './homepage';
 
@@ -31,20 +31,24 @@ function AppLayout({ children }) {
 function MenuBar() {
   return (
     <nav className="menuBar">
-      <a href="/" style={{ 
+      <Link to="/" style={{ 
         paddingTop: "14px", paddingLeft: "93px", minWidth: "208px",
         fontFamily: "Kulim Park", fontSize: '32px', fontWeight: '400' }}>
           Rachael Peng
-      </a>
-      <a href="/" className="menuNavHeaders" style={{marginLeft: "600px"}}>
-        about me</a>
-      <a href="/" className="menuNavHeaders">portfolio</a>
-      <a href="/" className="menuNavHeaders" style={{paddingRight: "93px"}}>connect</a>
+      </Link>
+
+      <Link to="/" className="menuNavHeaders" style={{marginLeft: "600px"}}>
+        about me</Link>
+
+      <Link to="/#portfolio" className="menuNavHeaders">portfolio</Link>
+
+      <Link to="/#connect" className="menuNavHeaders" style={{paddingRight: "93px"}}>connect</Link>
     </nav>
   )
 }
 
 function App() {
+
   return (
     <HashRouter>
       <header>
