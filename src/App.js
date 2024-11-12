@@ -60,7 +60,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/lightWater" element={<LightWaterPage />} />
           <Route path="/heatVest" element={<HeatVestPage />} />
-          <Route path="/snakeGame" element={<SnakeGamePage />} />
+          {/* <Route path="/snakeGame" element={<SnakeGamePage />} /> */}
 
           <Route path="/foodFriendly" element={<FoodFriendlyPage />} />
           <Route path="/lightWaterWeb" element={<LightWaterWebPage />} />
