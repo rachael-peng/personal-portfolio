@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import HomePage from './homepage';
 
@@ -43,7 +43,7 @@ function MenuBar() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <header>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -68,7 +68,7 @@ function App() {
           <Route path="/video" element={<VideoPage />} />
         </Routes>
       </AppLayout>
-    </BrowserRouter>  
+    </HashRouter>  
   );
 }
 
