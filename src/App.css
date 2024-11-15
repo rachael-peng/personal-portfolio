@@ -13,7 +13,7 @@ a, a:visited {
   justify-content: space-between;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 64px;
   flex-shrink: 0;
   background: #EAE3D4;
@@ -26,7 +26,7 @@ a, a:visited {
   font-family: "Kulim Park";
   font-weight: 400;
   padding-top: 19px;
-  margin-left: 30px;
+  margin-left: 20px;
   min-width: 102px;
   flex-grow: 1;
 }
@@ -41,19 +41,28 @@ a, a:visited {
 
 .aboutMeContainer {
   display: flex;
-  width: 1400px;
+  width: 95vw;
   height: 323px;
   padding-top: 80px;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 10vw;
   flex-shrink: 0;
-  margin-left: 30px;
+  margin-left: 50px;
 } 
+
+.imageTD {
+  width: 60px;
+}
+
+td {
+  width: 40vw;
+  text-align: left;
+}
 
 .aboutMeListContainer {
   display: flex;
-  width: 561px;
+  width: 40%;
   flex-direction: column;
   align-items: flex-start;
   margin-left: -90px;
@@ -87,7 +96,7 @@ a, a:visited {
   display: inline-flex;
   align-items: center;
   gap: 19px;
-  margin-top: 60px;
+  margin-top: 30px;
   margin-left: 30px;
 }
 
@@ -99,7 +108,7 @@ a, a:visited {
 
 .line {
   display: inline-flex;
-  width: 550px;
+  width: 35vw;
   height: 1px; 
   background-color: #000;
 }
@@ -108,21 +117,18 @@ a, a:visited {
 
 .portfolioHeaderContainer {
   width: 270px;
-  height: 315px;
-  display: inline-flex;
+  height: 290px;
+  display: flex;
   border-radius: 12px;
-  background: #FFF8EA;
+  background: rgba(255, 243, 218, 0.886);
   font-family: "Kulim Park";
   font-size: 26px;
   font-weight: 400;
-  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.2);
 
   justify-content: center;
   align-items: center;
-  padding: 0 48px;
+  padding: 10px 48px;
   box-sizing: border-box;
-  padding-left: 10px;
-  padding-right: 10px;
   margin-bottom: 30px;
 }
 
@@ -133,10 +139,12 @@ a, a:visited {
 }
 
 .box {
-  justify-content: center;
-  display: inline-flex; 
+  justify-content: flex-start;
+  display: flex; 
   align-items: center;
-  margin-left: 30px;
+  padding-left: 50px;
+  overflow-x: auto; 
+  margin-bottom: 30px;
 }
 
 .porfolioItemContainer {
@@ -161,7 +169,6 @@ a, a:visited {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1450px;
   gap: 45px;
   padding-bottom: 50px;
 }
@@ -194,4 +201,48 @@ a, a:visited {
   background: white;
   text-align: center;
   color: black;
+}
+
+/* ---- */
+.alsoHeaderContainer {
+  width: 280px;
+  height: 200px;
+  display: flex;
+  border-radius: 12px;
+  background: rgba(255, 243, 218, 0.886);
+  font-family: "Kulim Park";
+  font-size: 22px;
+  font-weight: 400;
+
+  justify-content: center;
+  align-items: center;
+  padding: 10px 48px;
+  box-sizing: border-box;
+}
+
+.alsoMaxWidth {
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+}
+
+.alsoItemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.alsoImage {
+  max-height: 190px;
+  max-width: 300px;
+  padding-left: 35px;
+  margin-right: 10px;
+}
+
+.alsoItemBox {
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }

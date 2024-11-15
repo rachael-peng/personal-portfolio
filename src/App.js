@@ -1,5 +1,5 @@
 import './App.css';
-import { Link, HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import HomePage from './homepage';
 
@@ -31,18 +31,20 @@ function AppLayout({ children }) {
 function MenuBar() {
   return (
     <nav className="menuBar">
-      <Link to="/" style={{ 
+      <div style={{ 
         paddingTop: "14px", paddingLeft: "93px", minWidth: "208px",
         fontFamily: "Kulim Park", fontSize: '32px', fontWeight: '400' }}>
           Rachael Peng
-      </Link>
+      </div>
 
-      <Link to="/" className="menuNavHeaders" style={{marginLeft: "600px"}}>
-        about me</Link>
+      <div className="menuNavHeaders" style={{marginLeft: "30vw"}}>
+        about me</div>
 
-      <Link to="/#portfolio" className="menuNavHeaders">portfolio</Link>
+      <div to="/" className="menuNavHeaders">portfolio</div>
 
-      <Link to="/#connect" className="menuNavHeaders" style={{paddingRight: "93px"}}>connect</Link>
+      <div to="/" className="menuNavHeaders">i'm also...</div>
+
+      <div className="menuNavHeaders" style={{paddingRight: "5vw"}}>connect</div>
     </nav>
   )
 }

@@ -2,11 +2,14 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import emailImage from './connect/mail.png'
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
-const aboutMeIcons = require.context('./aboutMeIcons', true);
-const aboutMeIconsImages = aboutMeIcons.keys().map(image => aboutMeIcons(image));
+import Gear from './aboutMeIcons/engineering.png'
+import Pipeline from './aboutMeIcons/pipeline.png'
+import Leaves from './aboutMeIcons/sustainability.png'
+import Star from './aboutMeIcons/xtar.png'
+
+// const aboutMeIcons = require.context('./aboutMeIcons', true);
+// const aboutMeIconsImages = aboutMeIcons.keys().map(image => aboutMeIcons(image));
 
 const connectIcons = require.context('./connect', true);
 const connectIconsImages = connectIcons.keys().map(image => connectIcons(image));
@@ -33,11 +36,11 @@ const engineeringPortfolio = [
     link: '/heatVest',
     caption: 'heat stroke prevention vest'
   },
-  // {
-  //   imageSrc: './engProjectImages/snakeGame.jpg',
-  //   link: '/snake game',
-  //   caption: 'snake game'
-  // }
+  {
+    imageSrc: engineeringPortfolioImagesList[3],
+    link: '/snakeGame',
+    caption: 'snake game'
+  }
 ];
 
 const uiuxPortfolioImages = require.context('./uiuxImages', true);
@@ -73,13 +76,73 @@ const mediaPortfolio = [
   {
     imageSrc: mediaPortfolioImagesList[1],
     link: 'socialMediaMarketing',
-    caption: 'social media marketing'
+    caption: 'marketing & graphic design'
   },
   {
     imageSrc: mediaPortfolioImagesList[2],
     link: '/video',
     caption: 'short video production'
   }
+]
+
+
+const newExperiencesImages = require.context('./newExperiencesImages', true);
+const newExperiencesImageList = newExperiencesImages.keys().map(image => newExperiencesImages(image));
+
+const newExperiences = [
+  {
+    imageSrc: newExperiencesImageList[0],
+    caption: 'career fair - co-director, company relations manager'
+  },
+  {
+    imageSrc: newExperiencesImageList[1],
+    caption: 'summer academic exchange at NTU'
+  },
+  {
+    imageSrc: newExperiencesImageList[3],
+    caption: 'jumpstart - senior orientation leader, orientation leader'
+  },
+  {
+    imageSrc: newExperiencesImageList[2],
+    caption: 'acapella enthusiast and soprano 1'
+  }
+]
+
+const newThingsImages = require.context('./newThingsImages', true);
+const newThingsImageList = newThingsImages.keys().map(image => newThingsImages(image));
+
+const newThings = [
+  {
+    imageSrc: newThingsImageList[2],
+    caption: 'working as high school STEM tutor'
+  },
+  {
+    imageSrc: newThingsImageList[1],
+    caption: 'learning Procreate digital art software'
+  },
+  {
+    imageSrc: newThingsImageList[0],
+    caption: 'becoming a volunteer with brown bagging for community kitchens'
+  }, 
+]
+
+
+const volunteerImages = require.context('./volunteerImages', true);
+const volunteerImageList = volunteerImages.keys().map(image => volunteerImages(image));
+
+const volunteer = [
+  {
+    imageSrc: volunteerImageList[2],
+    caption: 'youth volunteer corps (youth central)'
+  },
+  {
+    imageSrc: volunteerImageList[1],
+    caption: 'public library'
+  },
+  {
+    imageSrc: volunteerImageList[0],
+    caption: 'ams (student union) operations committee'
+  }, 
 ]
 
 
@@ -107,17 +170,52 @@ function AboutMe() {
             Rachael Peng
           </div>
         </div> 
-        <div className="aboutMeImageContainer">
+
+
+        <table >
+          <tr>
+            <td className='imageTD'>
+              <img src={Gear} className='aboutMeImages'/>
+            </td>
+            <td>
+              <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in software and biomedical, minor in commerce</p>
+            </td>
+          </tr>
+          <tr>
+            <td className='imageTD'>
+              <img src={Pipeline} className='aboutMeImages'/>
+            </td>
+            <td>
+            <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year</p>            </td>
+          </tr>
+          <tr>
+            <td className='imageTD'>
+              <img src={Leaves} className='aboutMeImages'/>
+            </td>
+            <td>
+            <p className='aboutMeText'>environmental sub-team lead @ engineers without borders</p>
+            </td>
+          </tr>
+          <tr>
+            <td className='imageTD'>
+              <img src={Star} className='aboutMeImages'/>
+            </td>
+            <td>
+            <p className='aboutMeText'>adventurer, problem-solver, & travel-lover @ heart</p>
+            </td>
+          </tr>
+        </table>
+
+
+
+        
+        {/* <div className="aboutMeImageContainer">
           {aboutMeIconsImages.map((imageSrc, index) => (
             <img key={index} src={imageSrc} alt={`Image of ${imageSrc}`} className='aboutMeImages'/>
           ))}
         </div> 
         <div className="aboutMeListContainer">
-          <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in software and biomedical, minor in commerce</p>
-          <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year</p>
-          <p className='aboutMeText'>environmental sub-team lead @ engineers without borders</p>
-          <p className='aboutMeText'>sustainability driven, visual artist, & travel-lover @ heart</p>
-        </div>
+        </div> */}
       </main>
   
     );
@@ -139,11 +237,35 @@ function Heading({nameHeading}) {
       <div className="portfolioHeaderContainer"><div className='maxWidth'>{headingName}</div></div>
     );
   }
+
+  function AlsoHeader({headingName}) {
+    return (
+      <div className="alsoHeaderContainer"><div className='alsoMaxWidth'>{headingName}</div></div>
+    );
+  }
   
   function PortfolioItem({imageSrc, link, caption}) {
     return (
       < Link to={link} target="_blank" rel="noopener noreferrer">
         <img src={imageSrc} alt={caption} className="portoflioImage"/>
+        <p>{caption}</p>
+      </Link>
+    );
+  }
+
+  function AlsoItem({imageSrc, link, caption}) {
+    return (
+      <div className="alsoItemBox">
+        <img src={imageSrc} alt={caption} className="alsoImage"/>
+        <p>{caption}</p>
+      </div>
+    );
+  }
+
+  function SpecialItem({imageSrc, link, caption}) {
+    return (
+      < Link className="alsoItemBox" to={link} target="_blank" rel="noopener noreferrer">
+        <img src={imageSrc} alt={caption} className="alsoImage"/>
         <p>{caption}</p>
       </Link>
     );
@@ -191,18 +313,6 @@ function Heading({nameHeading}) {
   // -----------------------------------------//
 
 function HomePage() {
-    const location = useLocation();
-
-  useEffect(() => {
-    const hash = location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [location]);
-
     return (
         
         <div className="App">
@@ -228,6 +338,7 @@ function HomePage() {
               <div></div>
               
               <div className='box'>
+                <PortfolioHeader headingName="ui/ux design"/>
                 <div className="porfolioItemContainer">
                   {uiuxPortfolio.map((item, index) => (
                     <PortfolioItem
@@ -238,24 +349,72 @@ function HomePage() {
                     />
                   ))}
                 </div>
-              <PortfolioHeader headingName="ui/ux design"/>
+              
               </div>
   
               <div></div>
-  
+            </main>
+
+            <main>
+              <Heading id="POV" nameHeading="i'm also..."/>
+
               <div className='box'>
-                <PortfolioHeader headingName="graphic design, art, video"/>
-                <div className="porfolioItemContainer">
-                  {mediaPortfolio.map((item, index) => (
-                    <PortfolioItem
+                <AlsoHeader headingName="passionate about new experiences to expand my worldview"/>
+                <div className="alsoItemContainer">
+                  {newExperiences.map((item, index) => (
+                    <AlsoItem
                       key={index}
                       imageSrc={item.imageSrc}
-                      link={item.link}
                       caption={item.caption}
                     />
                   ))}
                 </div>
               </div>
+              
+              <div className='box'>
+                <AlsoHeader headingName="a visual artist"/>
+                <div className="alsoItemContainer"> {mediaPortfolio.map((item, index) => (
+                    <SpecialItem
+                      key={index}
+                      imageSrc={item.imageSrc}
+                      caption={item.caption}
+                    />
+                  ))}
+                </div>
+              </div>
+
+                <div></div>
+
+              <div className='box'>
+              <AlsoHeader headingName="an avid volunteer"/>
+              <div className="alsoItemContainer"> {volunteer.map((item, index) => (
+                  <AlsoItem
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    link={item.link}
+                    caption={item.caption}
+                  />
+                ))}
+              </div>
+                </div>
+
+                <div></div>
+
+
+                <div className='box'>
+                <AlsoHeader headingName="a continuous learner and explorer"/>
+                <div className="alsoItemContainer"> {newThings.map((item, index) => (
+                    <AlsoItem
+                      key={index}
+                      imageSrc={item.imageSrc}
+                      caption={item.caption}
+                    />
+                  ))}
+                </div>  
+                </div>            
+
+
+
             </main>
   
             <main>
