@@ -2,6 +2,7 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import emailImage from './connect/mail.png'
+import { useRef } from 'react';
 
 import Gear from './aboutMeIcons/engineering.png'
 import Pipeline from './aboutMeIcons/pipeline.png'
@@ -171,7 +172,6 @@ function AboutMe() {
           </div>
         </div> 
 
-
         <table >
           <tr>
             <td className='imageTD'>
@@ -313,13 +313,18 @@ function Heading({nameHeading}) {
   // -----------------------------------------//
 
 function HomePage() {
-    return (
+  const aboutMeRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const alsoRef= useRef(null);
+  const connectRef= useRef(null);
+
+  return (
         
         <div className="App">
           <div>
-            <AboutMe/>
+            <AboutMe id="aboutMe" ref={aboutMeRef}/>
             <main>
-              <Heading id="portfolio" nameHeading="portfolio"/>
+              <Heading id="portfolio" ref={portfolioRef} nameHeading="portfolio"/>
   
               <div className='box'>
                 <PortfolioHeader headingName="engineering projects"/>
@@ -356,7 +361,7 @@ function HomePage() {
             </main>
 
             <main>
-              <Heading id="POV" nameHeading="i'm also..."/>
+              <Heading id="also" ref={alsoRef} nameHeading="i'm also..."/>
 
               <div className='box'>
                 <AlsoHeader headingName="passionate about new experiences to expand my worldview"/>
@@ -418,7 +423,7 @@ function HomePage() {
             </main>
   
             <main>
-              <Heading id="connect" nameHeading="connect"/>
+              <Heading id="connect" ref={connectRef} nameHeading="connect"/>
               <div className='connectContainer'>
                 <Connect/>
                 <EmailButton/>

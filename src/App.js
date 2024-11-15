@@ -39,8 +39,7 @@ function MenuBar() {
 
       <div className="menuNavHeaders" style={{marginLeft: "30vw"}}>
         about me</div>
-
-      <div to="/" className="menuNavHeaders">portfolio</div>
+      <div to="/" className="menuNavHeaders" >portfolio</div>
 
       <div to="/" className="menuNavHeaders">i'm also...</div>
 
@@ -49,8 +48,8 @@ function MenuBar() {
   )
 }
 
-function App() {
 
+function App() {
   return (
     <HashRouter>
       <header>
