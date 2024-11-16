@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import emailImage from './connect/mail.png'
 
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import Gear from './aboutMeIcons/engineering.png'
 import Pipeline from './aboutMeIcons/pipeline.png'
 import Leaves from './aboutMeIcons/sustainability.png'
@@ -312,6 +315,22 @@ function Heading({nameHeading}) {
   // -----------------------------------------//
 
 function HomePage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const targetId = new URLSearchParams(location.search).get('target');
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const elementTop = targetElement.offsetTop;
+        window.scrollTo({
+          top: elementTop,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [location]);
+  
   return (
         
         <div className="App">

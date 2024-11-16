@@ -29,16 +29,6 @@ function AppLayout({ children }) {
 // menubar
 
 function MenuBar() {
-  const scrollTo = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <nav className="menuBar">
       <div style={{ 
@@ -47,20 +37,10 @@ function MenuBar() {
           Rachael Peng
       </div>
 
-      <a className="menuNavHeaders" style={{marginLeft: "30vw"}} 
-      href="/"
-      onClick={() => scrollTo('home')}>
-      about me</a>
-      <a href='/#portfolio'
-        className="menuNavHeaders" 
-        onClick={() => scrollTo('portfolio')}>
-          portfolio</a>
-      <a className="menuNavHeaders"
-      activeClass="active"
-      onClick={() => scrollTo('home')}> i'm also...</a>
-      <a className="menuNavHeaders" 
-        style={{paddingRight: "5vw"}}
-        onClick={() => scrollTo('home')}>connect</a>
+      <Link className="menuNavHeaders" to="/" id="aboutMe" style={{marginLeft: "30vw"}}>about me</Link>
+      <Link className="menuNavHeaders" to={`/?targetId=portfolio`}>portfolio</Link>
+      <Link className="menuNavHeaders" to="/" id="also"> i'm also...</Link>
+      <Link className="menuNavHeaders" to="/" id="connect">connect</Link>
     </nav>
   )
 }
