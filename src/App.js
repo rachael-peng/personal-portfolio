@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import React from 'react';
 import HomePage from './homepage';
 
@@ -29,6 +29,16 @@ function AppLayout({ children }) {
 // menubar
 
 function MenuBar() {
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav className="menuBar">
       <div style={{ 
@@ -37,13 +47,20 @@ function MenuBar() {
           Rachael Peng
       </div>
 
-      <div className="menuNavHeaders" style={{marginLeft: "30vw"}}>
-        about me</div>
-      <div to="/" className="menuNavHeaders" >portfolio</div>
-
-      <div to="/" className="menuNavHeaders">i'm also...</div>
-
-      <div className="menuNavHeaders" style={{paddingRight: "5vw"}}>connect</div>
+      <a className="menuNavHeaders" style={{marginLeft: "30vw"}} 
+      href="/"
+      onClick={() => scrollTo('home')}>
+      about me</a>
+      <a href='/#portfolio'
+        className="menuNavHeaders" 
+        onClick={() => scrollTo('portfolio')}>
+          portfolio</a>
+      <a className="menuNavHeaders"
+      activeClass="active"
+      onClick={() => scrollTo('home')}> i'm also...</a>
+      <a className="menuNavHeaders" 
+        style={{paddingRight: "5vw"}}
+        onClick={() => scrollTo('home')}>connect</a>
     </nav>
   )
 }

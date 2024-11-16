@@ -13,14 +13,21 @@ function SnakeGamePage() {
           <p><strong>Created:</strong> April 2024</p>
           <p><strong>Ideated for:</strong> CPEN 333B - Software Design for Engineers</p>
           <p><strong>Description:</strong> Coded in Python. Classic snake game.</p>
+          <p><strong>Link to Github:</strong><a href="https://github.com/rachael-peng/snake_game-producer_consumer" style={{
+                textDecoration: "underline",
+                color: "blue",
+              }}>
+                https://github.com/rachael-peng/snake_game-producer_consumer
+              </a></p>
         </div>
 
       <div style={{display: "inline-flex"}}>
 
-      <video width="600" controls>
+      <video width="600px" controls>
           <source src={SnakeVideo} type="video/mp4"/>
           Your browser does not support the video tag.
         </video>
+      
 
         <div></div>
 

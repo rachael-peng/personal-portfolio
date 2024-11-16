@@ -2,7 +2,6 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import emailImage from './connect/mail.png'
-import { useRef } from 'react';
 
 import Gear from './aboutMeIcons/engineering.png'
 import Pipeline from './aboutMeIcons/pipeline.png'
@@ -76,7 +75,7 @@ const mediaPortfolio = [
   },
   {
     imageSrc: mediaPortfolioImagesList[1],
-    link: 'socialMediaMarketing',
+    link: '/socialMediaMarketing',
     caption: 'marketing & graphic design'
   },
   {
@@ -253,7 +252,7 @@ function Heading({nameHeading}) {
     );
   }
 
-  function AlsoItem({imageSrc, link, caption}) {
+  function AlsoItem({imageSrc, caption}) {
     return (
       <div className="alsoItemBox">
         <img src={imageSrc} alt={caption} className="alsoImage"/>
@@ -264,7 +263,7 @@ function Heading({nameHeading}) {
 
   function SpecialItem({imageSrc, link, caption}) {
     return (
-      < Link className="alsoItemBox" to={link} target="_blank" rel="noopener noreferrer">
+      < Link to={link} className="alsoItemBox" target="_blank" rel="noopener noreferrer">
         <img src={imageSrc} alt={caption} className="alsoImage"/>
         <p>{caption}</p>
       </Link>
@@ -313,18 +312,13 @@ function Heading({nameHeading}) {
   // -----------------------------------------//
 
 function HomePage() {
-  const aboutMeRef = useRef(null);
-  const portfolioRef = useRef(null);
-  const alsoRef= useRef(null);
-  const connectRef= useRef(null);
-
   return (
         
         <div className="App">
           <div>
-            <AboutMe id="aboutMe" ref={aboutMeRef}/>
+            <AboutMe id="aboutMe"/>
             <main>
-              <Heading id="portfolio" ref={portfolioRef} nameHeading="portfolio"/>
+              <Heading id="portfolio" nameHeading="portfolio"/>
   
               <div className='box'>
                 <PortfolioHeader headingName="engineering projects"/>
@@ -361,8 +355,7 @@ function HomePage() {
             </main>
 
             <main>
-              <Heading id="also" ref={alsoRef} nameHeading="i'm also..."/>
-
+              <Heading id="also" nameHeading="i'm also..."/>
               <div className='box'>
                 <AlsoHeader headingName="passionate about new experiences to expand my worldview"/>
                 <div className="alsoItemContainer">
@@ -381,6 +374,7 @@ function HomePage() {
                 <div className="alsoItemContainer"> {mediaPortfolio.map((item, index) => (
                     <SpecialItem
                       key={index}
+                      link={item.link}
                       imageSrc={item.imageSrc}
                       caption={item.caption}
                     />
@@ -423,7 +417,7 @@ function HomePage() {
             </main>
   
             <main>
-              <Heading id="connect" ref={connectRef} nameHeading="connect"/>
+              <Heading id="connect" nameHeading="connect"/>
               <div className='connectContainer'>
                 <Connect/>
                 <EmailButton/>

@@ -18,7 +18,7 @@ function ImageGallery() {
     <div>
       {images.map((imageUrl, index) => (
         <img key={index} src={imageUrl} alt={`Image ${index + 1}`} style={{
-          width: "200px",
+          width: "300px",
         }}/>
       ))}
     </div>

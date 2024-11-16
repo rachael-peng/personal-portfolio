@@ -1,19 +1,20 @@
 import React from 'react';
 import '../pages.css';
 import lightWaterPhoto from './lightwaterphoto.png';
+import lightWaterSetup from'./lightWaterSetup.jpg';
 
 function LightWaterWebPage() {
     return (
         <div className='page'>
           <div className='headingContainer'>
-            <div className="pageHeading">Light Water Web App</div>
+            <div className="pageHeading">Light Water Art Installation</div>
           </div>
           <div className='descriptionContainer'>
             <p><strong>Team Leader and Founder</strong></p>
             <p><strong>Created:</strong> September 2023 - April 2024</p>
             <p><strong>Ideated for:</strong> IGEN 330 - Year Long Engineering Project Design</p>
             <p><strong>Description:</strong> Design dynamic, interactive engineering/art installation controlled by web app. Created to raise awareness for clean water availability challenges. Physical components include welded aluminum frame, stepper motors and drivers, LED lights, edge-lit laser cut acrylic, power outlet plug, pH and turbidity water sensors, etc.
-            Create web app control state (lights, motion, sounds) of corresponding installation according to clean water data. Skills: Figma, HTML, CSS, Javascript, HTTP communication, Arduino, C++.
+            Create web app (see Light Water Web App under UI/UX Design Portfolio) to control state (lights, motion, sounds) of corresponding installation according to clean water data. Skills: Figma, HTML, CSS, Javascript, HTTP communication, Arduino, C++.
             </p>
             <p style={{
               display: "inline",
@@ -36,6 +37,9 @@ function LightWaterWebPage() {
 
           <div>
             <img className='pageImgs' src={lightWaterPhoto}/>
+          </div>
+          <div>
+            <img className='pageImgs' src={lightWaterSetup}/>
           </div>
 
         </div>

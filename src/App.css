@@ -16,10 +16,12 @@ a, a:visited {
   width: 100vw;
   height: 64px;
   flex-shrink: 0;
-  background: #EAE3D4;
+  background: #b8e8f6;
   color: black;
   overflow-x: auto; 
 }
+
+/* EAE3D4 */
 
 .menuNavHeaders {
   font-size: 22px;
@@ -37,18 +39,20 @@ a, a:visited {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-right: -30px;
 }
 
 .aboutMeContainer {
   display: flex;
   width: 95vw;
-  height: 323px;
-  padding-top: 80px;
+  /* height: 323px; */
+  padding-top: 100px;
   justify-content: center;
   align-items: center;
-  gap: 10vw;
-  flex-shrink: 0;
+  gap: 8vw;
   margin-left: 50px;
+  margin-right: 50px;
+  flex-grow: 1;
 } 
 
 .imageTD {
@@ -60,7 +64,7 @@ td {
   text-align: left;
 }
 
-.aboutMeListContainer {
+/* .aboutMeListContainer {
   display: flex;
   width: 40%;
   flex-direction: column;
@@ -75,7 +79,7 @@ td {
   flex-direction: column;
   align-items: center;
   gap: 18px;
-}
+} */
 
 .aboutMeText {
   font-family: Lato;
@@ -120,7 +124,7 @@ td {
   height: 290px;
   display: flex;
   border-radius: 12px;
-  background: rgba(255, 243, 218, 0.886);
+  background: rgba(178, 255, 229, 0.886);
   font-family: "Kulim Park";
   font-size: 26px;
   font-weight: 400;
@@ -198,7 +202,7 @@ td {
 /* --------------------------------- */
 
 .App {
-  background: white;
+  background: rgb(255, 255, 250);
   text-align: center;
   color: black;
 }
@@ -209,7 +213,7 @@ td {
   height: 200px;
   display: flex;
   border-radius: 12px;
-  background: rgba(255, 243, 218, 0.886);
+  background: rgba(220, 255, 218, 0.886);
   font-family: "Kulim Park";
   font-size: 22px;
   font-weight: 400;
