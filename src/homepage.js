@@ -317,7 +317,7 @@ function HomePage() {
   console.log(targetId);
 
   useLayoutEffect(() => {
-    const offset = 70;
+    const offset = 80;
 
     if (targetId === 'portfolio') { 
       if (portfolioRef.current) {

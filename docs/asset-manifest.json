@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/personal-portfolio/static/css/main.52e46d73.css",
-    "main.js": "/personal-portfolio/static/js/main.a989258f.js",
+    "main.css": "/personal-portfolio/static/css/main.3ed297a6.css",
+    "main.js": "/personal-portfolio/static/js/main.abcdd157.js",
     "static/js/453.68693753.chunk.js": "/personal-portfolio/static/js/453.68693753.chunk.js",
     "static/media/2024 Career Fair Website Banner.png": "/personal-portfolio/static/media/2024 Career Fair Website Banner.ce80b413bc230ebfb18c.png",
     "static/media/ubcd2d1.mp4": "/personal-portfolio/static/media/ubcd2d1.9ce1f911f2c72bdde8b9.mp4",
@@ -59,12 +59,12 @@
     "static/media/xtar.png": "/personal-portfolio/static/media/xtar.0ffdee0ede1bd6357cd1.png",
     "static/media/linkedIn.webp": "/personal-portfolio/static/media/linkedIn.4c11b4693dd4eebca5be.webp",
     "index.html": "/personal-portfolio/index.html",
-    "main.52e46d73.css.map": "/personal-portfolio/static/css/main.52e46d73.css.map",
-    "main.a989258f.js.map": "/personal-portfolio/static/js/main.a989258f.js.map",
+    "main.3ed297a6.css.map": "/personal-portfolio/static/css/main.3ed297a6.css.map",
+    "main.abcdd157.js.map": "/personal-portfolio/static/js/main.abcdd157.js.map",
     "453.68693753.chunk.js.map": "/personal-portfolio/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.52e46d73.css",
-    "static/js/main.a989258f.js"
+    "static/css/main.3ed297a6.css",
+    "static/js/main.abcdd157.js"
   ]
 }

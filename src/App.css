@@ -103,6 +103,10 @@ td {
   gap: 19px;
   margin-top: 30px;
   margin-left: 30px;
+  /* background-color: rgb(213, 224, 255);
+  border-radius: 30px;
+  padding: 0 30px;
+  height: 60px;  */
 }
 
 .h1 {
@@ -127,7 +131,7 @@ td {
   border-radius: 12px;
   background: rgba(178, 255, 229, 0.886);
   font-family: "Kulim Park";
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
 
   justify-content: center;
