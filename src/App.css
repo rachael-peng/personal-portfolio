@@ -45,6 +45,7 @@ a, a:visited {
 .aboutMeContainer {
   display: flex;
   width: 95vw;
+  /* min-width: 1000px; */
   /* height: 323px; */
   padding-top: 100px;
   justify-content: center;

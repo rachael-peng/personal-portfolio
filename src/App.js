@@ -37,14 +37,13 @@ function MenuBar() {
           Rachael Peng
       </div>
 
-      <Link className="menuNavHeaders" to="/" id="aboutMe" style={{marginLeft: "30vw"}}>about me</Link>
-      <Link className="menuNavHeaders" to={`/?targetId=portfolio`}>portfolio</Link>
-      <Link className="menuNavHeaders" to="/" id="also"> i'm also...</Link>
-      <Link className="menuNavHeaders" to="/" id="connect">connect</Link>
+      <Link className="menuNavHeaders" to={"/?targetId=aboutMe"} style={{marginLeft: "30vw"}}>about me</Link>
+      <Link className="menuNavHeaders" to={"/?targetId=portfolio"}>portfolio</Link>
+      <Link className="menuNavHeaders" to={"/?targetId=also"}> i'm also...</Link>
+      <Link className="menuNavHeaders" to={"/?targetId=connect"}>connect</Link>
     </nav>
   )
 }
-
 
 function App() {
   return (

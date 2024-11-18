@@ -1,9 +1,9 @@
 import './App.css';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import emailImage from './connect/mail.png'
 
-import { useEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import Gear from './aboutMeIcons/engineering.png'
@@ -150,9 +150,9 @@ const volunteer = [
 
 
 // -----------------------------------------//
-function AboutMe() {
+const AboutMe = forwardRef((_, ref) => {
     return (
-      <main className='aboutMeContainer'>
+      <main ref={ref} className='aboutMeContainer'>
         <div className="titleContainer">
           <div style={{
             fontFamily: "Lato",
@@ -175,9 +175,10 @@ function AboutMe() {
         </div> 
 
         <table >
+          <tbody>
           <tr>
             <td className='imageTD'>
-              <img src={Gear} className='aboutMeImages'/>
+              <img src={Gear} alt="gear" className='aboutMeImages'/>
             </td>
             <td>
               <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in software and biomedical, minor in commerce</p>
@@ -185,14 +186,14 @@ function AboutMe() {
           </tr>
           <tr>
             <td className='imageTD'>
-              <img src={Pipeline} className='aboutMeImages'/>
+              <img src={Pipeline} alt="pipe" className='aboutMeImages'/>
             </td>
             <td>
             <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year</p>            </td>
           </tr>
           <tr>
             <td className='imageTD'>
-              <img src={Leaves} className='aboutMeImages'/>
+              <img alt="leaf" src={Leaves} className='aboutMeImages'/>
             </td>
             <td>
             <p className='aboutMeText'>environmental sub-team lead @ engineers without borders</p>
@@ -200,38 +201,28 @@ function AboutMe() {
           </tr>
           <tr>
             <td className='imageTD'>
-              <img src={Star} className='aboutMeImages'/>
+              <img src={Star} alt="star" className='aboutMeImages'/>
             </td>
             <td>
             <p className='aboutMeText'>adventurer, problem-solver, & travel-lover @ heart</p>
             </td>
           </tr>
+          </tbody>
         </table>
-
-
-
-        
-        {/* <div className="aboutMeImageContainer">
-          {aboutMeIconsImages.map((imageSrc, index) => (
-            <img key={index} src={imageSrc} alt={`Image of ${imageSrc}`} className='aboutMeImages'/>
-          ))}
-        </div> 
-        <div className="aboutMeListContainer">
-        </div> */}
       </main>
-  
     );
-  }
-  
-function Heading({nameHeading}) {
+});
+
+const Heading = forwardRef(({ nameHeading }, ref) => {
   return (
-    <div className="headingContainer">
+    <div ref={ref} className="headingContainer">
       <div className="line"></div>
       <h1>{nameHeading}</h1>
       <div className="line"></div>
     </div>
   );
-}
+});
+
   
   // -----------------------------------------//
   function PortfolioHeader({headingName}) {
@@ -293,7 +284,7 @@ function Heading({nameHeading}) {
     return (
       <div className="connectCaptionContainer">
         <a href={url} target="_blank" rel="noopener noreferrer">
-          <img key={imageSrc} src={imageSrc} alt={`Image of ${imageSrc}`} className="connectImages" />
+          <img key={imageSrc} src={imageSrc} alt={`It is ${imageSrc}`} className="connectImages" />
         </a>
         <p className="connectImageCaption">{caption}</p>
       </div>
@@ -305,7 +296,7 @@ function Heading({nameHeading}) {
   
     return (
       <div className="connectCaptionContainer" onClick={() => window.location.href = `mailto:${emailAddress}`}>
-        <img className='connectImages' src={emailImage}/>
+        <img className='connectImages' alt="emailicon" src={emailImage}/>
         <p className='connectImageCaption'>email</p>
       </div>
     );
@@ -316,97 +307,61 @@ function Heading({nameHeading}) {
 
 function HomePage() {
   const location = useLocation();
+  const targetId = new URLSearchParams(location.search).get('targetId');
+  
+  const aboutMeRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const alsoRef = useRef(null);
+  const connectRef = useRef(null);
 
-  useEffect(() => {
-    const targetId = new URLSearchParams(location.search).get('target');
-    if (targetId) {
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        const elementTop = targetElement.offsetTop;
+  console.log(targetId);
+
+  useLayoutEffect(() => {
+    const offset = 70;
+
+    if (targetId === 'portfolio') { 
+      if (portfolioRef.current) {
+        const portfolioElementTop = portfolioRef.current.offsetTop - offset;
         window.scrollTo({
-          top: elementTop,
+          top: portfolioElementTop,
           behavior: 'smooth'
         });
       }
+    } else if (targetId === 'also') {
+      if (alsoRef.current) {
+        const alsoElementTop = alsoRef.current.offsetTop - offset;
+        window.scrollTo({
+          top: alsoElementTop,
+          behavior: 'smooth'
+        });
+      }
+    } else if (targetId === 'connect') {
+      const connectElementTop = connectRef.current.offsetTop - offset;
+        window.scrollTo({
+          top: connectElementTop,
+          behavior: 'smooth'
+        });
+    } else if (targetId === 'aboutMe') {
+      const aboutMeElementTop = aboutMeRef.current.offsetTop - offset;
+        window.scrollTo({
+          top: aboutMeElementTop,
+          behavior: 'smooth'
+      });
     }
-  }, [location]);
-  
+  }, [targetId]);
+
   return (
-        
-        <div className="App">
-          <div>
-            <AboutMe id="aboutMe"/>
-            <main>
-              <Heading id="portfolio" nameHeading="portfolio"/>
-  
-              <div className='box'>
-                <PortfolioHeader headingName="engineering projects"/>
-                <div className="porfolioItemContainer">
-                  {engineeringPortfolio.map((item, index) => (
-                    <PortfolioItem
-                      key={index}
-                      imageSrc={item.imageSrc}
-                      link={item.link}
-                      caption={item.caption}
-                    />
-                  ))}
-                </div>
-              </div>
-  
-              <div></div>
-              
-              <div className='box'>
-                <PortfolioHeader headingName="ui/ux design"/>
-                <div className="porfolioItemContainer">
-                  {uiuxPortfolio.map((item, index) => (
-                    <PortfolioItem
-                      key={index}
-                      imageSrc={item.imageSrc}
-                      link={item.link}
-                      caption={item.caption}
-                    />
-                  ))}
-                </div>
-              
-              </div>
-  
-              <div></div>
-            </main>
+      <div className="App">
+        <div>
+          <AboutMe ref={aboutMeRef} id="aboutMeHeading"/>
+          <main>
+            <Heading ref={portfolioRef} id="portfolioHeading" nameHeading="portfolio"/>
 
-            <main>
-              <Heading id="also" nameHeading="i'm also..."/>
-              <div className='box'>
-                <AlsoHeader headingName="passionate about new experiences to expand my worldview"/>
-                <div className="alsoItemContainer">
-                  {newExperiences.map((item, index) => (
-                    <AlsoItem
-                      key={index}
-                      imageSrc={item.imageSrc}
-                      caption={item.caption}
-                    />
-                  ))}
-                </div>
-              </div>
-              
-              <div className='box'>
-                <AlsoHeader headingName="a visual artist"/>
-                <div className="alsoItemContainer"> {mediaPortfolio.map((item, index) => (
-                    <SpecialItem
-                      key={index}
-                      link={item.link}
-                      imageSrc={item.imageSrc}
-                      caption={item.caption}
-                    />
-                  ))}
-                </div>
-              </div>
-
-                <div></div>
-
-              <div className='box'>
-              <AlsoHeader headingName="an avid volunteer"/>
-              <div className="alsoItemContainer"> {volunteer.map((item, index) => (
-                  <AlsoItem
+            <div className='box'>
+              <PortfolioHeader headingName="engineering projects"/>
+              <div className="porfolioItemContainer">
+                {engineeringPortfolio.map((item, index) => (
+                  <PortfolioItem
                     key={index}
                     imageSrc={item.imageSrc}
                     link={item.link}
@@ -414,46 +369,101 @@ function HomePage() {
                   />
                 ))}
               </div>
-                </div>
+            </div>
 
-                <div></div>
-
-
-                <div className='box'>
-                <AlsoHeader headingName="a continuous learner and explorer"/>
-                <div className="alsoItemContainer"> {newThings.map((item, index) => (
-                    <AlsoItem
-                      key={index}
-                      imageSrc={item.imageSrc}
-                      caption={item.caption}
-                    />
-                  ))}
-                </div>  
-                </div>            
-
-
-
-            </main>
-  
-            <main>
-              <Heading id="connect" nameHeading="connect"/>
-              <div className='connectContainer'>
-                <Connect/>
-                <EmailButton/>
+            <div></div>
+            
+            <div className='box'>
+              <PortfolioHeader headingName="ui/ux design"/>
+              <div className="porfolioItemContainer">
+                {uiuxPortfolio.map((item, index) => (
+                  <PortfolioItem
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    link={item.link}
+                    caption={item.caption}
+                  />
+                ))}
               </div>
-            </main>
-          </div>
-          <footer>
-            <p style={{
-              fontFamily: "Kulim Park",
-              fontSize: "11px",
-              fontWeight: "400",
-            }}>
-              coded in React and designed in Figma by Rachael Peng
-            </p>
-          </footer>
+            
+            </div>
+
+            <div></div>
+          </main>
+
+          <main>
+            <Heading id="alsoHeading" ref={alsoRef} nameHeading="i'm also..."/>
+            <div className='box'>
+              <AlsoHeader headingName="passionate about new experiences to expand my worldview"/>
+              <div className="alsoItemContainer">
+                {newExperiences.map((item, index) => (
+                  <AlsoItem
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    caption={item.caption}
+                  />
+                ))}
+              </div>
+            </div>
+            
+            <div className='box'>
+              <AlsoHeader headingName="a visual artist"/>
+              <div className="alsoItemContainer"> {mediaPortfolio.map((item, index) => (
+                  <SpecialItem
+                    key={index}
+                    link={item.link}
+                    imageSrc={item.imageSrc}
+                    caption={item.caption}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className='box'>
+            <AlsoHeader headingName="an avid volunteer"/>
+            <div className="alsoItemContainer"> {volunteer.map((item, index) => (
+                <AlsoItem
+                  key={index}
+                  imageSrc={item.imageSrc}
+                  link={item.link}
+                  caption={item.caption}
+                />
+              ))}
+            </div>
+            </div>
+
+            <div className='box'>
+            <AlsoHeader headingName="a continuous learner and explorer"/>
+            <div className="alsoItemContainer"> {newThings.map((item, index) => (
+                <AlsoItem
+                  key={index}
+                  imageSrc={item.imageSrc}
+                  caption={item.caption}
+                />
+              ))}
+            </div>  
+            </div>            
+          </main>
+
+          <main>
+            <Heading id="connectHeading" ref={connectRef} nameHeading="connect"/>
+            <div className='connectContainer'>
+              <Connect/>
+              <EmailButton/>
+            </div>
+          </main>
         </div>
-    );
-  }
+        <footer>
+          <p style={{
+            fontFamily: "Kulim Park",
+            fontSize: "11px",
+            fontWeight: "400",
+          }}>
+            coded in React and designed in Figma by Rachael Peng
+          </p>
+        </footer>
+      </div>
+  );
+}
   
   export default HomePage;
