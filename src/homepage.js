@@ -74,7 +74,7 @@ const mediaPortfolio = [
   {
     imageSrc: mediaPortfolioImagesList[0],
     link: '/animation',
-    caption: 'projection lighting animation'
+    caption: 'projection lighting animation with Activism through Art and Technology (ATTA)'
   },
   {
     imageSrc: mediaPortfolioImagesList[1],
@@ -84,7 +84,7 @@ const mediaPortfolio = [
   {
     imageSrc: mediaPortfolioImagesList[2],
     link: '/video',
-    caption: 'short video production'
+    caption: 'short video production with Student Alumni Council (SAC)'
   }
 ]
 
@@ -117,7 +117,7 @@ const newThingsImageList = newThingsImages.keys().map(image => newThingsImages(i
 const newThings = [
   {
     imageSrc: newThingsImageList[2],
-    caption: 'working as high school STEM tutor'
+    caption: 'working as high school STEM tutor with Tutorax'
   },
   {
     imageSrc: newThingsImageList[1],
@@ -125,7 +125,7 @@ const newThings = [
   },
   {
     imageSrc: newThingsImageList[0],
-    caption: 'becoming a volunteer with brown bagging for community kitchens'
+    caption: "becoming a volunteer with brown bagging for Calgary's kids"
   }, 
 ]
 
@@ -140,7 +140,7 @@ const volunteer = [
   },
   {
     imageSrc: volunteerImageList[1],
-    caption: 'public library'
+    caption: 'calgary public library'
   },
   {
     imageSrc: volunteerImageList[0],
@@ -406,6 +406,20 @@ function HomePage() {
               </div>
             </div>
             
+
+            <div className='box'>
+            <AlsoHeader headingName="a continuous learner and explorer"/>
+            <div className="alsoItemContainer"> {newThings.map((item, index) => (
+                <AlsoItem
+                  key={index}
+                  imageSrc={item.imageSrc}
+                  caption={item.caption}
+                />
+              ))}
+            </div>  
+            </div> 
+
+
             <div className='box'>
               <AlsoHeader headingName="a visual artist"/>
               <div className="alsoItemContainer"> {mediaPortfolio.map((item, index) => (
@@ -418,6 +432,8 @@ function HomePage() {
                 ))}
               </div>
             </div>
+
+
 
             <div className='box'>
             <AlsoHeader headingName="an avid volunteer"/>
@@ -432,17 +448,7 @@ function HomePage() {
             </div>
             </div>
 
-            <div className='box'>
-            <AlsoHeader headingName="a continuous learner and explorer"/>
-            <div className="alsoItemContainer"> {newThings.map((item, index) => (
-                <AlsoItem
-                  key={index}
-                  imageSrc={item.imageSrc}
-                  caption={item.caption}
-                />
-              ))}
-            </div>  
-            </div>            
+                       
           </main>
 
           <main>
