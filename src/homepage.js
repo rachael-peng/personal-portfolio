@@ -74,17 +74,17 @@ const mediaPortfolio = [
   {
     imageSrc: mediaPortfolioImagesList[0],
     link: '/animation',
-    caption: 'projection lighting animation with Activism through Art and Technology (ATTA)'
+    caption: 'projection lighting animation with Activism through Art and Technology (ATTA) - click for more!'
   },
   {
     imageSrc: mediaPortfolioImagesList[1],
     link: '/socialMediaMarketing',
-    caption: 'marketing & graphic design'
+    caption: 'marketing & graphic design - click for more!'
   },
   {
     imageSrc: mediaPortfolioImagesList[2],
     link: '/video',
-    caption: 'short video production with Student Alumni Council (SAC)'
+    caption: 'short video production with Student Alumni Council (SAC) - click for more!'
   }
 ]
 
@@ -117,7 +117,7 @@ const newThingsImageList = newThingsImages.keys().map(image => newThingsImages(i
 const newThings = [
   {
     imageSrc: newThingsImageList[2],
-    caption: 'working as high school STEM tutor with Tutorax'
+    caption: 'previous high school STEM tutor'
   },
   {
     imageSrc: newThingsImageList[1],
@@ -181,7 +181,7 @@ const AboutMe = forwardRef((_, ref) => {
               <img src={Gear} alt="gear" className='aboutMeImages'/>
             </td>
             <td>
-              <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in software and biomedical, minor in commerce</p>
+              <p className='aboutMeText'>integrated engineering @ university of british columbia (vancouver) - specialties in chemical/biological and software</p>
             </td>
           </tr>
           <tr>
@@ -189,7 +189,7 @@ const AboutMe = forwardRef((_, ref) => {
               <img src={Pipeline} alt="pipe" className='aboutMeImages'/>
             </td>
             <td>
-            <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year</p>            </td>
+            <p className='aboutMeText'>cathodic protection & pipeline integrity co-op @ atco gas - 1 year</p> <p className='aboutMeText'>analyst intern @ deloitte - 4 months</p>           </td>
           </tr>
           <tr>
             <td className='imageTD'>
