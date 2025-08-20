@@ -99,7 +99,7 @@ const newExperiences = [
   },
   {
     imageSrc: newExperiencesImageList[1],
-    caption: 'summer academic exchange at NTU'
+    caption: 'summer academic exchange at NTU, Singapore'
   },
   {
     imageSrc: newExperiencesImageList[3],
