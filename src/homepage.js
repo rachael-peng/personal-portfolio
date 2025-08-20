@@ -28,6 +28,7 @@ const connectImageData = [
 const engineeringPortfolioImages = require.context('./engProjectImages', true);
 const engineeringPortfolioImagesList = engineeringPortfolioImages.keys().map(image => engineeringPortfolioImages(image));
 
+// comment
 const engineeringPortfolio = [
   {
     imageSrc: engineeringPortfolioImagesList[1],
